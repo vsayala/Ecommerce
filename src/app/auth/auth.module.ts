@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SendMailComponent } from './send-mail/send-mail.component';
 import { UpdatePasswordComponent } from './update-password/update-password.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -24,6 +25,8 @@ const routes: Routes = [
     RegisterComponent],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
     RouterModule.forRoot(routes, {useHash: true})
   ]
 })

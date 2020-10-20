@@ -8,7 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import { FooterComponent } from './common/footer/footer.component';
 import { NavbarComponent } from './common/navbar/navbar.component';
 
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +19,8 @@ import { NavbarComponent } from './common/navbar/navbar.component';
     BrowserModule,
     AppRoutingModule,
     AuthModule,
+    ReactiveFormsModule,
+    FormsModule,
     // CoreModule
   ],
   providers: [],
