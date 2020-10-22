@@ -1,1 +1,58 @@
-<p>login works!</p>
+<!DOCTYPE html>
+<h1 class="login-title-header">E-commerce Site</h1>
+<br>
+<br>
+<br>
+<div class="container-fluid">
+    <div class="container login-form">
+      <h2 class="login-title">- Please Login -</h2>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <form [formGroup]="loginForm" (ngSubmit)="login()" >
+            <div class="input-group login-userinput">
+              <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+              <input id="txtUser" type="text" formControlName="username" class="form-control" name="username" placeholder="Username">
+            </div>
+            <small id="emailHelp" *ngIf="loginForm.controls.username.touched && loginForm.controls.username.hasError('required')" class="form-text text-muted">Username is required</small>
+            <div class="input-group">
+              <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+              <input id="txtPassword" type="password" class="form-control" name="password" formControlName="password" placeholder="Password">
+              <span id="showPassword" class="input-group-btn">
+                <button class="btn btn-default reveal" type="button"><i class="glyphicon glyphicon-eye-open"></i></button>
+              </span>
+            </div>
+            <button class="btn btn-primary btn-block login-button" type="submit"><i class="fa fa-sign-in"></i>
+              Login</button>
+            <div class="checkbox login-options">
+              <label><input type="checkbox" /> Remember Me</label>
+              <a href="#" class="login-forgot">Forgot Username/Password?</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+<script>
+  window.onload = function () { $("#showPassword").hide(); }
+
+    $("#txtPassword").on('change', function () {
+      if ($("#txtPassword").val()) {
+        $("#showPassword").show();
+      }
+      else {
+        $("#showPassword").hide();
+      }
+    });
+
+    $(".reveal").on('click', function () {
+      var $pwd = $("#txtPassword");
+      if ($pwd.attr('type') === 'password') {
+        $pwd.attr('type', 'text');
+      }
+      else {
+        $pwd.attr('type', 'password');
+      }
+    });
+</script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
